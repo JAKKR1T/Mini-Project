@@ -22,7 +22,7 @@ let running = false;
 let a = 0;
 let b = 0;
 let player1 = 'X'
-let player2 ='O'
+let player2 = 'O'
 let size;
 let counterplayer1A = 0;
 let counterplayer1B = 0;
@@ -44,7 +44,7 @@ function startgame(){
         a = 1;
         size = 'AS'
         if(currentPlayer == "Player 2"){
-            size = 'O'
+            size = 'O'  
         }
     });
     
