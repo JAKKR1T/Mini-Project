@@ -1,3 +1,13 @@
+body {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  min-height: 100vh;
+  background: url(https://images3.alphacoders.com/104/1044851.jpg) no-repeat;
+  background-size: cover;
+  background-position: center;
+}
+
 .cell{
     width: 75px;
     height: 75px;
@@ -62,16 +72,35 @@
     margin: auto;
 }
 
-#restartBtn{
+/*#restartBtn{
   background-color: aliceblue;
   border-radius: 4px;
   font-size: large;
   text-align: center;
   width: 90px;
   height: 30px;
+}*/
+
+#restartBtn {
+  margin-bottom: 5px;
+  width:  100%;
+  height:  45px;
+  background: black;
+  border: none;
+  outline: none;
+  border-radius: 6px;
+  cursor: pointer;
+  font-size: 1em;
+  color: white;
+  font-weight: 500;
+  transition: .5s;
 }
 
-
+#restartBtn:hover {
+  background: white;
+  color: black;
+  border: 2px solid black;
+}
 
 /*canvas {
     display: block;
