@@ -99,7 +99,7 @@ function cilckcell(){
 
 }
 function updateCell(cell, index)  {  
-    //options[index] = size;
+    options[index] = size;
     {
         if(currentPlayer == "Player 1")
         {
@@ -135,22 +135,20 @@ function updateCell(cell, index)  {
             
             if(a == 1) {
             cell.textContent = "1";
-            if(counterplayer1A < 2){
-                choiceBtn.style.backgroundColor = '#f0f8ff';}
+            choiceBtn.style.backgroundColor = '#f0f8ff';
             counterplayer1A += 1
 
         }
            if(a == 2) {
             cell.textContent = "2";
-            if(counterplayer1B < 2){
-            choiceBtn2.style.backgroundColor = '#f0f8ff';}
+            choiceBtn2.style.backgroundColor = '#f0f8ff';
             counterplayer1B += 1
 
         }
            if(a == 3) {
             cell.textContent = "3";
-            if(counterplayer1C < 2){
-            choiceBtn3.style.backgroundColor = '#f0f8ff'}
+            choiceBtn3.style.backgroundColor = '#f0f8ff'
+            
             counterplayer1C += 1
             options[index] = size;
 
@@ -196,22 +194,19 @@ function updateCell(cell, index)  {
 
             if(a == 1) {
             cell.textContent = "A";
-            if(counterplayer2A < 2){
-            choiceBtn.style.backgroundColor = '#f0f8ff';}
+            choiceBtn.style.backgroundColor = '#f0f8ff';
             counterplayer2A += 1
 
             }
            if(a == 2) {
             cell.textContent = "B";
-            if(counterplayer2B < 2){
-            choiceBtn2.style.backgroundColor = '#f0f8ff';}
+            choiceBtn2.style.backgroundColor = '#f0f8ff';
             counterplayer2B += 1
             
             }
            if(a == 3) {
             cell.textContent = "C";
-            if(counterplayer2C < 2){
-            choiceBtn3.style.backgroundColor = '#f0f8ff'}
+            choiceBtn3.style.backgroundColor = '#f0f8ff'
             counterplayer2C += 1
             options[index] = size;
             }
@@ -291,23 +286,12 @@ function checkWinner(){
     choiceBtn.style.backgroundColor = '#7CFC00';
     choiceBtn.style.transition = '.3s ease';
     currentPlayer;
-    if(currentPlayer == "Player 1"){
-    
-        if(counterplayer1B < 2){
-            choiceBtn2.style.backgroundColor = '#f0f8ff';}
-        if(counterplayer1C < 2){
-            choiceBtn3.style.backgroundColor = '#f0f8ff';}
-    }
+    choiceBtn2.style.backgroundColor = '#f0f8ff';
+    choiceBtn3.style.backgroundColor = '#f0f8ff';
     a = 1;
     size = 'AS'
     if(currentPlayer == "Player 2"){
         size = 'O'
-        if(counterplayer2B < 2){
-            choiceBtn2.style.backgroundColor = '#f0f8ff';
-        }
-        if(counterplayer2C){
-            choiceBtn3.style.backgroundColor = '#f0f8ff';
-        }
     }
     /*
     if(currentPlayer == "Player 1"){
@@ -327,21 +311,12 @@ function koko2()
         choiceBtn2.style.backgroundColor = '#7CFC00';
     choiceBtn2.style.transition = '.3s ease';
     currentPlayer; 
-    if(currentPlayer == "Player 1"){
-        if(counterplayer1A < 2){
-        choiceBtn.style.backgroundColor = '#f0f8ff';}
-        if(counterplayer1C < 2){
-        choiceBtn3.style.backgroundColor = '#f0f8ff';}
-}
+    choiceBtn.style.backgroundColor = '#f0f8ff';
+    choiceBtn3.style.backgroundColor = '#f0f8ff';
     a = 2;
     size ='AS'
     if(currentPlayer == "Player 2"){
         size = 'O'
-        
-        if(counterplayer2A < 2){
-            choiceBtn.style.backgroundColor = '#f0f8ff';}
-        if(counterplayer2C < 2){
-            choiceBtn2.style.backgroundColor = '#f0f8ff';}
     }
 }
 function koko3()
@@ -349,19 +324,11 @@ function koko3()
     choiceBtn3.style.backgroundColor = '#7CFC00';
     choiceBtn3.style.transition = '.3s ease';
     currentPlayer; 
-    if(currentPlayer == "Player 1"){
-    if(counterplayer1A < 2){
-    choiceBtn.style.backgroundColor = '#f0f8ff';}
-    if(counterplayer1B < 2){
-    choiceBtn2.style.backgroundColor = '#f0f8ff';}
-    }
+    choiceBtn.style.backgroundColor = '#f0f8ff';
+    choiceBtn2.style.backgroundColor = '#f0f8ff';
     a = 3;
     size = 'AS'
     if(currentPlayer == "Player 2"){
         size = 'O'
-        if(counterplayer2A < 2){
-            choiceBtn.style.backgroundColor = '#f0f8ff';}
-        if(counterplayer2B < 2){
-            choiceBtn2.style.backgroundColor = '#f0f8ff';}
     }
 }
