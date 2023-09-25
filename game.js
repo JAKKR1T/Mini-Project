@@ -22,7 +22,7 @@ let running = false;
 let a = 0;
 let b = 0;
 let player1 = 'X'
-let player2 = 'O'
+let player2 ='O'
 let size;
 let counterplayer1A = 0;
 let counterplayer1B = 0;
@@ -35,48 +35,15 @@ startgame();
 function startgame(){
     
     if(currentPlayer == "Player 1"){
-    choiceBtn.addEventListener('click',() => {
-        choiceBtn.style.backgroundColor = '#7CFC00';
-        choiceBtn.style.transition = '.3s ease';
-        currentPlayer;
-        choiceBtn2.style.backgroundColor = '#f0f8ff';
-        choiceBtn3.style.backgroundColor = '#f0f8ff';
-        a = 1;
-        size = 'AS'
-        if(currentPlayer == "Player 2"){
-            size = 'O'  
-        }
-    });
+
     
-    choiceBtn2.addEventListener('click',() => {
-        
-        choiceBtn2.style.backgroundColor = '#7CFC00';
-        choiceBtn2.style.transition = '.3s ease';
-        currentPlayer; 
-        choiceBtn.style.backgroundColor = '#f0f8ff';
-        choiceBtn3.style.backgroundColor = '#f0f8ff';
-        a = 2;
-        size ='AS'
-        if(currentPlayer == "Player 2"){
-            size = 'O'
-        }
-    });
-    choiceBtn3.addEventListener('click',() => {
-        
-        choiceBtn3.style.backgroundColor = '#7CFC00';
-        choiceBtn3.style.transition = '.3s ease';
-        currentPlayer; 
-        choiceBtn.style.backgroundColor = '#f0f8ff';
-        choiceBtn2.style.backgroundColor = '#f0f8ff';
-        a = 3;
-        size = 'AS'
-        if(currentPlayer == "Player 2"){
-            size = 'O'
-        }
-    });
+        choiceBtn.addEventListener('click',() => koko1());
+    choiceBtn2.addEventListener('click',() => koko2());
+    choiceBtn3.addEventListener('click',() => koko3());
+     
+  
 }
-/*
-if(currentPlayer == "Player 2"){
+/*if(currentPlayer == "Player 2"){
     choiceBtn.addEventListener('click',() => {
         choiceBtn.style.backgroundColor = '#7CFC00';
         choiceBtn.style.transition = '.3s ease';
@@ -107,8 +74,8 @@ if(currentPlayer == "Player 2"){
         choiceBtn2.style.backgroundColor = '#f0f8ff';
         a = 3;
         size = 'O'
-    });
-}*/
+    });*/
+
     
     cells.forEach(cell => cell.addEventListener("click", cilckcell));
     restartBtn.addEventListener("click", restartGame);
@@ -132,78 +99,128 @@ function cilckcell(){
 
 }
 function updateCell(cell, index)  {  
-    options[index] = size;
+    //options[index] = size;
     {
         if(currentPlayer == "Player 1")
         {
+            if(counterplayer2A >= 2){
+                choiceBtn.style.backgroundColor = '#FF0000'
+                console.log("hello")
+                choiceBtn.disabled = true;
+            }
+            if((counterplayer2A < 2) && (counterplayer1A >= 2))
+            {
+                choiceBtn.disabled = false;
+                choiceBtn.style.backgroundColor = '#f0f8ff';
+            }
+            if(counterplayer2B >= 2){
+                choiceBtn2.style.backgroundColor = '#FF0000'
+                console.log("hello")
+                choiceBtn2.disabled = true;
+            }
+            
+            if((counterplayer2B < 2)&&(counterplayer1B >= 2)){
+                choiceBtn2.disabled = false;
+            }
+            if(counterplayer2C >= 2){
+                choiceBtn3.style.backgroundColor = '#FF0000'
+                console.log("hello")
+                choiceBtn3.disabled = true;
+            }
+            if((counterplayer2C < 2) && (counterplayer1C >= 2)){
+                choiceBtn3.disabled = false;
+                choiceBtn3.style.backgroundColor = '#f0f8ff' 
+            }
+
+            
             if(a == 1) {
             cell.textContent = "1";
-            choiceBtn.style.backgroundColor = '#f0f8ff';
+            if(counterplayer1A < 2){
+                choiceBtn.style.backgroundColor = '#f0f8ff';}
             counterplayer1A += 1
-            if(counterplayer1A > 2){
-                
-                a = 0;
-                choiceBtn.style.backgroundColor = '#FF0000';
-            }
+
         }
            if(a == 2) {
             cell.textContent = "2";
-            choiceBtn2.style.backgroundColor = '#f0f8ff';
+            if(counterplayer1B < 2){
+            choiceBtn2.style.backgroundColor = '#f0f8ff';}
             counterplayer1B += 1
+
         }
            if(a == 3) {
             cell.textContent = "3";
-            choiceBtn3.style.backgroundColor = '#f0f8ff'
+            if(counterplayer1C < 2){
+            choiceBtn3.style.backgroundColor = '#f0f8ff'}
             counterplayer1C += 1
+            options[index] = size;
+
         }
            if(a == 0){//ห้ามเปลื่ยน
             cell.textContent = "";//ห้ามเปลื่ยน
             }//ห้ามเปลื่ยน
-    
         }
+    
+        
         if(currentPlayer == "Player 2")
 
         {
+
+            if(counterplayer1A >= 2){
+                choiceBtn.style.backgroundColor = '#FF0000'
+                console.log("helloD")
+                choiceBtn.disabled = true;
+            }
+            if((counterplayer1A < 2)&&(counterplayer2A >= 2)){
+                choiceBtn.disabled = false;
+                choiceBtn.style.backgroundColor = '#f0f8ff'
+            }
+            if(counterplayer1B >= 2){
+                choiceBtn2.style.backgroundColor = '#FF0000'
+                console.log("helloE")
+                choiceBtn2.disabled = true;
+            }
+            if((counterplayer1B < 2)&&(counterplayer2B >= 2)){
+                choiceBtn2.disabled = false;
+                choiceBtn2.style.backgroundColor = '#f0f8ff'
+            }
+            if(counterplayer1C >= 2){
+                choiceBtn3.style.backgroundColor = '#FF0000'
+                console.log("helloF")
+                choiceBtn3.disabled = true;
+            }
+            if((counterplayer1C < 2)&&(counterplayer2C >= 2)){
+                choiceBtn3.disabled = false;
+                choiceBtn3.style.backgroundColor = '#f0f8ff'
+            }
+
+
             if(a == 1) {
             cell.textContent = "A";
-            choiceBtn.style.backgroundColor = '#f0f8ff';
+            if(counterplayer2A < 2){
+            choiceBtn.style.backgroundColor = '#f0f8ff';}
             counterplayer2A += 1
+
             }
            if(a == 2) {
             cell.textContent = "B";
-            choiceBtn2.style.backgroundColor = '#f0f8ff';
+            if(counterplayer2B < 2){
+            choiceBtn2.style.backgroundColor = '#f0f8ff';}
             counterplayer2B += 1
+            
             }
            if(a == 3) {
             cell.textContent = "C";
-            choiceBtn3.style.backgroundColor = '#f0f8ff'
+            if(counterplayer2C < 2){
+            choiceBtn3.style.backgroundColor = '#f0f8ff'}
             counterplayer2C += 1
+            options[index] = size;
             }
            if(a == 0){//ห้ามเปลื่ยน
             cell.textContent = "";//ห้ามเปลื่ยน
             }//ห้ามเปลื่ยน
         
         }
-        {    
-            if(counterplayer2A > 2){
-                    choiceBtn.style.backgroundColor = '#FF0000';
-                }
-                else{
-                    choiceBtn.style.backgroundColor = '#f0f8ff'
-                }
-                if(counterplayer2B > 2){
-                    choiceBtn2.style.backgroundColor = '#FF0000';
-                }
-                else{
-                    choiceBtn2.style.backgroundColor = '#f0f8ff';
-                }
-                if(counterplayer2C > 2){
-                    choiceBtn3.style.backgroundColor = '#FF0000';
-                }
-                else{
-                    choiceBtn3.style.backgroundColor = '#f0f8ff'
-                }
-            }
+
     }
 }
 
@@ -213,10 +230,28 @@ function restartGame(){
     statusText.textContent = `${currentPlayer}'s turn`;
     cells.forEach(cell => cell.textContent = "");
     running = true;
+    counterplayer1A = 0;
+    counterplayer1B = 0;
+    counterplayer1C = 0;
+    counterplayer2A = 0;
+    counterplayer2B = 0;
+    counterplayer2C = 0;
+    choiceBtn.style.backgroundColor = '#f0f8ff'
+    choiceBtn2.style.backgroundColor = '#f0f8ff'
+    choiceBtn3.style.backgroundColor = '#f0f8ff'
+    choiceBtn.disabled = false;
+    choiceBtn2.disabled = false;
+    choiceBtn3.disabled = false;
 } 
 function changePlayer(){
     currentPlayer = (currentPlayer == "Player 1") ? "Player 2" : "Player 1";
     statusText.textContent = `${currentPlayer}'s turn`;
+}
+function empty(){
+    if (b == 0){
+        cell.textContent = "";
+
+    }
 }
 
 function checkWinner(){
@@ -248,5 +283,85 @@ function checkWinner(){
     }
     else{
         changePlayer();
+    }
+}
+
+    function koko1()
+{
+    choiceBtn.style.backgroundColor = '#7CFC00';
+    choiceBtn.style.transition = '.3s ease';
+    currentPlayer;
+    if(currentPlayer == "Player 1"){
+    
+        if(counterplayer1B < 2){
+            choiceBtn2.style.backgroundColor = '#f0f8ff';}
+        if(counterplayer1C < 2){
+            choiceBtn3.style.backgroundColor = '#f0f8ff';}
+    }
+    a = 1;
+    size = 'AS'
+    if(currentPlayer == "Player 2"){
+        size = 'O'
+        if(counterplayer2B < 2){
+            choiceBtn2.style.backgroundColor = '#f0f8ff';
+        }
+        if(counterplayer2C){
+            choiceBtn3.style.backgroundColor = '#f0f8ff';
+        }
+    }
+    /*
+    if(currentPlayer == "Player 1"){
+        if(counterplayer1A > 2){
+            cells.forEach(cell => cell.removeEventListener("click", cilckcell));
+        }
+        if(counterplayer1A < 2){
+            cells.forEach(cell => cell.addEventListener("click", cilckcell));
+        }
+    }
+
+*/
+
+}
+function koko2()
+{
+        choiceBtn2.style.backgroundColor = '#7CFC00';
+    choiceBtn2.style.transition = '.3s ease';
+    currentPlayer; 
+    if(currentPlayer == "Player 1"){
+        if(counterplayer1A < 2){
+        choiceBtn.style.backgroundColor = '#f0f8ff';}
+        if(counterplayer1C < 2){
+        choiceBtn3.style.backgroundColor = '#f0f8ff';}
+}
+    a = 2;
+    size ='AS'
+    if(currentPlayer == "Player 2"){
+        size = 'O'
+        
+        if(counterplayer2A < 2){
+            choiceBtn.style.backgroundColor = '#f0f8ff';}
+        if(counterplayer2C < 2){
+            choiceBtn2.style.backgroundColor = '#f0f8ff';}
+    }
+}
+function koko3()
+{
+    choiceBtn3.style.backgroundColor = '#7CFC00';
+    choiceBtn3.style.transition = '.3s ease';
+    currentPlayer; 
+    if(currentPlayer == "Player 1"){
+    if(counterplayer1A < 2){
+    choiceBtn.style.backgroundColor = '#f0f8ff';}
+    if(counterplayer1B < 2){
+    choiceBtn2.style.backgroundColor = '#f0f8ff';}
+    }
+    a = 3;
+    size = 'AS'
+    if(currentPlayer == "Player 2"){
+        size = 'O'
+        if(counterplayer2A < 2){
+            choiceBtn.style.backgroundColor = '#f0f8ff';}
+        if(counterplayer2B < 2){
+            choiceBtn2.style.backgroundColor = '#f0f8ff';}
     }
 }
